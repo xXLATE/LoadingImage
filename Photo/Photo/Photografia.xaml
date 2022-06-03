@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:Photo"
+             Visual="Material"
+             x:Class="Photo.Photografia">
+    <ContentPage.Content>
+        <StackLayout>
+            <Entry x:Name="name" BackgroundColor="LightGray" Margin="40, 40, 40, 0" FontSize="15"/>
+            <local:ZoomImg>
+                <local:ZoomImg.Content>
+                    <Image x:Name="img" Margin="40"/>
+                </local:ZoomImg.Content>
+            </local:ZoomImg>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

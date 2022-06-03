@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Visual="Material"
+             x:Class="Photo.MainPage">
+
+    <StackLayout>
+        <StackLayout Margin="50,0">
+            <Entry x:Name="name" Placeholder="Введите название" BackgroundColor="#DCDCDC"  Margin="0,30,0,0"/>
+
+            <StackLayout Orientation="Horizontal" Margin="0,10" Spacing="10">
+                <Button x:Name="gallery" BackgroundColor="#00B2FF" Text="ГАЛЕРЕЯ" HorizontalOptions="Start" CornerRadius="30" Clicked="gallery_Clicked" TextColor="White" Padding="30,10"/>
+                <Button x:Name="camer" BackgroundColor="#00B2FF" Text="КАМЕРА" HorizontalOptions="EndAndExpand" CornerRadius="30" Clicked="camera_Clicked" TextColor="White" Padding="30,10"/>
+            </StackLayout>
+
+            <Button x:Name="add" BackgroundColor="#00B2FF" Text="ДОБАВИТЬ" CornerRadius="20" Margin="0,20" Clicked="Add_Clicked"  TextColor="White" Padding="30,10"/>
+        </StackLayout>
+
+
+        <StackLayout Margin="15, 20">
+            <ScrollView>
+                <ListView x:Name="imageList"   ItemTapped="image_ItemTapped" HasUnevenRows="True" >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <SwipeView>
+                                    <SwipeView.RightItems>
+                                        <SwipeItems>
+                                            <SwipeItem
+                                                BackgroundColor="Red" Clicked="SwipeItem_Clicked" CommandParameter="{Binding Id}" IconImageSource="vector.png" Text="удалить" />
+                                        </SwipeItems>
+                                    </SwipeView.RightItems>
+                                    
+                                    <StackLayout>
+                                        <Label Text="{Binding Name}" TextColor="Black" FontSize="20"/>
+                                        <Frame BackgroundColor="#E8E8E8" >
+                                            <Image Source="{Binding Imagepath}" Margin="-20,-20,200,-20"></Image>
+                                        </Frame>
+
+                                    </StackLayout>
+
+                                </SwipeView>
+                                
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </ScrollView>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>
